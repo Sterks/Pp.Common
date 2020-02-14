@@ -8,14 +8,14 @@ import (
 )
 
 //GetHash Получить md5 хеш .
-func GetHash(file io.Reader) (string, io.Writer) {
-	var g io.Writer
+func GetHash(file io.Reader) string {
+	// var g io.Writer
 	var hasher = sha256.New()
 	// repeatStream := io.TeeReader(file, hasher)
-	_, err := io.Copy(g, file)
+	_, err := io.Copy(hasher, file)
 	if err != nil {
 		log.Printf("Не удалось расчитать hash - %v", err)
 	}
 	hash := hex.EncodeToString(hasher.Sum(nil))
-	return hash, g
+	return hash
 }
