@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-//GetHash Получить md5 хеш
+//GetHash Получить md5 хеш .
 func GetHash(file io.Reader) (string, io.Writer) {
 	var g io.Writer
 	var hasher = sha256.New()
